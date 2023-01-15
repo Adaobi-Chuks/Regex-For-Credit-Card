@@ -15,6 +15,17 @@ const mastercardMatch = /^(?:5[1-5]\d{14})|(?:(?:222[1-9]|22[3-9]\d|2[3-6]\d{2}|
 - | - This symbol is an "or" operator. It allows the regex funtion to match either the pattern before or after the operator.
 - (?:) - This is another non-capturing group.
 - 222[1-9]|22[3-9]\d|2[3-6]\d{2}|27[0-1]\d|2720 - This pattern matches the first 6 digits of a Mastercard card number within the range 2221-2720.
+
+222[1-9] was used to capture numbers between 2221-2229
+
+22[3-9]\d was used to capture numbers between 2230-2299
+
+2[3-6]\d{2} was used to capture numbers between 2300-2699
+
+27[0-1]\d was used to capture numbers between 2700-2719
+
+Finally 2720 which brings them all to a range of 2221-2720 to capture the first 4 digits of the second non-capturing group.
+
 - \d{12} - This pattern matches 12 digits. It is used to match the remaining digits of a Mastercard card number.
 - $ - This symbol ensures that the pattern must end at the end of the string.
 
